@@ -1,0 +1,12 @@
+Package: raretech
+Title: Rare Science & Tech Tools
+Version: 0.0.0.9000
+Authors@R: 
+    person("Angel", "Umana", , "aumana@rare.org", role = c("aut", "cre"))
+Description: Utility functions for Rare Science & Tech workflows.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Imports: 
+    readr
