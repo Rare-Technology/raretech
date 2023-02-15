@@ -2,7 +2,7 @@
 % Please edit documentation in R/get-data.R
 \name{getData}
 \alias{getData}
-\title{Load dataset from data world.}
+\title{Load data and its metadata from data world.}
 \usage{
 getData(dataset_name)
 }
@@ -10,13 +10,14 @@ getData(dataset_name)
 \item{dataset_name}{Any of the following shorthand names:
 \itemize{
 \item "hhs" - Household surveys. hh_survey_combined from https://data.world/rare/hh-surveys
+\item "fish" - Fish surveys. fish_surveys_all from https://data.world/rare/fish-surveys
 \item "benthic" - Benthic surveys. BenthicMaster from https://data.world/rare/benthic-surveys
 \item "ourfish" - OurFish catch data. join_ourfish_footprint_fishbase from https://data.world/rare/fisheries-dashboard
 }}
 }
 \value{
-A tibble from readr
+A list containing the requested data, its column metadata, and source url.
 }
 \description{
-Load dataset from data world.
+Load data and its metadata from data world.
 }
