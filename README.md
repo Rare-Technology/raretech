@@ -16,17 +16,43 @@ Rather than keeping track of url's to import Fish Forever data, use `getData` to
 
 ``` r
 > library(raretech)
-> hhs <- getData("hhs")
-Rows: 32676 Columns: 400                                                                      
- 0s── Column specification ────────────────────────────────────────────────────────────────────────
+> fish <- getData("fish")
+Rows: 196925 Columns: 22                                         
+── Column specification ───────────────────────────────────────────
 Delimiter: ","
-chr  (268): submissionid, iso3, subnational, local, lat, lon, maa, ma_area, ma_status, 1_int...
-dbl  (121): 14a_months_farming, 14a_income_farming, 14b_months_harvesting, 14b_income_harves...
-lgl   (10): 13o_no_strategy, 31l_emergency_ngo_group_specify, 31m_emergency_insurance_specif...
-dttm   (1): updatedat
+chr  (12): country, ma_name, location_name, location_status, tr...
+dbl   (9): year, lat, lon, count, density_ind_ha, biomass_kg_ha...
+date  (1): survey_date
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 22 Columns: 2                                              
+── Column specification ───────────────────────────────────────────
+Delimiter: ","
+chr (2): columnname, description
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+```
+
+As you can see, there were two tables loaded. One is the actual fish survey data, `fish$data`, and the other is column metadata:
+```r
+> head(fish$metadata)
+# A tibble: 6 x 2
+  columnname    description                                        
+  <chr>         <chr>                                              
+1 country       Full country name. A country contains SNU's.       
+2 year          survey year. Does not necessarily correspond to th…
+3 lat           Latitude of survey site                            
+4 lon           Longitude of survey site                           
+5 ma_name       Managed access area. A managed access area contain…
+6 location_name Survey site. A survey site contains transects.
+```
+
+Additionally, you can see the data.world source url for the data:
+```r
+> fish$source
+[1] "https://data.world/rare/fish-surveys"
 ```
 
 Use `?getData` for a list of valid inputs and more info.
